@@ -111,5 +111,6 @@ set -g @prefix_highlight_output_suffix ""
 # vim:filetype=tmux:foldmethod=marker:foldenable
 
 # Integration Fish Shell
-set -g default-command /usr/bin/fish
-set -g default-shell /usr/bin/fish
+if-shell "uname | grep -q Darwin" "set -g default-command /usr/local/bin/fish; set -g default-shell /usr/local/bin/fish" "set -g default-command /usr/bin/fish; set -g default-shell /usr/bin/fish"
+
+
